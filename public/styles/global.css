@@ -1,9 +1,9 @@
 #hero {
-  background-image: url("/public/images/hero-bg.jpg");
+  background-image: url("/public/images/hero-bg.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-position: right;
+  background-position: center;
 }
 
 .map-container {
@@ -60,4 +60,8 @@
   background: #000;
   color: #fff;
   text-decoration: none;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
 }
