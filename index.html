@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>John Bryan Pit M. Acaso</title>
     <link
+      defer
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
     <link
+      defer
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
@@ -41,8 +43,12 @@
     />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
+
+    <!-- Manifest File link -->
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
+    <!-- TODO uncomment after testing -->
     <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 
@@ -147,24 +153,28 @@
               href="https://twitter.com/pit_casoy"
               target="_blank"
               class="twitter"
+              aria-label="My twitter"
               ><i class="bi bi-twitter"></i
             ></a>
             <a
               href="https://www.facebook.com/johnbryanpitcasoy"
               target="_blank"
               class="facebook"
+              aria-label="My facebook"
               ><i class="bi bi-facebook"></i
             ></a>
             <a
               href="https://www.instagram.com/johnbryanpit/"
               target="_blank"
               class="instagram"
+              aria-label="My instagram"
               ><i class="bi bi-instagram"></i
             ></a>
             <a
               href="https://www.linkedin.com/in/john-bryan-acaso-25721b157/"
               target="_blank"
               class="linkedin"
+              aria-label="My linkedin"
               ><i class="bi bi-linkedin"></i
             ></a>
 
@@ -172,6 +182,7 @@
               href="https://github.com/boogeymanCoder"
               target="_blank"
               class="github"
+              aria-label="My github"
               ><i class="bi bi-github"></i
             ></a>
           </div>
@@ -194,7 +205,11 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 col-lg-4">
-              <img class="img-fluid" src="/public/images/profile-img.webp" />
+              <img
+                class="img-fluid"
+                src="/public/images/profile-img.webp"
+                alt="Profile image"
+              />
             </div>
             <!-- Includes my personal information -->
             <div class="col-md-6 col-lg-8">
@@ -905,6 +920,7 @@
                           frameborder="0"
                           style="border: 0"
                           allowfullscreen
+                          title="locationMap"
                         ></iframe>
                       </div>
                     </div>
@@ -977,25 +993,32 @@
       </figure>
 
       <div class="social-links">
-        <a href="https://twitter.com/pit_casoy" target="_blank" class="twitter"
+        <a
+          href="https://twitter.com/pit_casoy"
+          target="_blank"
+          class="twitter"
+          aria-label="My twitter"
           ><i class="bi bi-twitter"></i
         ></a>
         <a
           href="https://www.facebook.com/johnbryanpitcasoy"
           target="_blank"
           class="facebook"
+          aria-label="My facebook"
           ><i class="bi bi-facebook"></i
         ></a>
         <a
           href="https://www.instagram.com/johnbryanpit/"
           target="_blank"
           class="instagram"
+          aria-label="My instagram"
           ><i class="bi bi-instagram"></i
         ></a>
         <a
           href="https://www.linkedin.com/in/john-bryan-acaso-25721b157/"
           target="_blank"
           class="linkedin"
+          aria-label="My linkedin"
           ><i class="bi bi-linkedin"></i
         ></a>
 
@@ -1003,10 +1026,29 @@
           href="https://github.com/boogeymanCoder"
           target="_blank"
           class="github"
+          aria-label="My github"
           ><i class="bi bi-github"></i
         ></a>
       </div>
     </footer>
+
+    <!-- Script for Service Worker -->
+    <script>
+      window.addEventListener("load", () => {
+        registerSW();
+      });
+
+      // Register the Service Worker
+      async function registerSW() {
+        if ("serviceWorker" in navigator) {
+          try {
+            await navigator.serviceWorker.register("serviceworker.js");
+          } catch (e) {
+            console.log("SW registration failed");
+          }
+        }
+      }
+    </script>
 
     <!-- Bootstrap CDN -->
     <script
